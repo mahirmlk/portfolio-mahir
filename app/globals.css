@@ -1,0 +1,487 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --bg-elevated: #f7f7f7;
+  --bg-card: #fafafa;
+  --bg-raised: #f4f4f4;
+  --bg-tag: #ffffff;
+  --border: rgba(17, 17, 17, 0.09);
+  --border-mid: rgba(17, 17, 17, 0.14);
+  --border-strong: rgba(17, 17, 17, 0.22);
+  --border-hover: rgba(17, 17, 17, 0.32);
+  --fg: #111111;
+  --fg-muted: rgba(17, 17, 17, 0.82);
+  --fg-subtle: rgba(17, 17, 17, 0.62);
+  --accent-green: #111111;
+  --nav-bg: #ffffff;
+  --btn-bg: #f3f3f3;
+  --btn-fg: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--fg) 18%, transparent);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+
+.page-shell {
+  position: relative;
+  isolation: isolate;
+  background: #ffffff;
+}
+
+.ambient-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 15, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 15, 15, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.35) 100%);
+  opacity: 0;
+}
+
+.ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(110px);
+  opacity: 0;
+}
+
+.ambient-glow-primary {
+  left: 50%;
+  top: -10rem;
+  height: 18rem;
+  width: 30rem;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.08) 56%, transparent 80%);
+}
+
+.ambient-glow-secondary {
+  right: -10%;
+  top: 30%;
+  height: 12rem;
+  width: 12rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 58%, transparent 78%);
+}
+
+.ambient-vignette {
+  position: absolute;
+  inset: 0;
+  background: none;
+}
+
+.site-container {
+  margin: 0 auto;
+  width: min(1120px, calc(100vw - 2rem));
+}
+
+.section-block {
+  padding-block: 5.5rem;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+
+.section-title {
+  margin-top: 0.9rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.section-copy {
+  max-width: 44rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--fg-muted);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.22),
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+
+.glass-chip {
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 10px 24px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.glass-button {
+  border: 1px solid var(--border-mid);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
+    color-mix(in srgb, var(--bg-card) 88%, transparent);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.glass-button:hover {
+  border-color: var(--border-hover);
+}
+
+.card-hover {
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow:
+    0 36px 90px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.prose-article h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.prose-article p {
+  margin-bottom: 1rem;
+  color: var(--fg-muted);
+  line-height: 1.9;
+}
+
+.prose-article ul {
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+}
+
+.prose-article li {
+  margin-bottom: 0.6rem;
+  color: var(--fg-muted);
+}
+
+.mono {
+  font-family: var(--font-mono), monospace;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.82);
+  }
+}
+
+@keyframes float-orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+.animate-float-orb {
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+/* ─── GitHub Contribution Graph ─── */
+
+.gh-graph-container {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  color: var(--fg);
+  overflow: visible;
+}
+
+.gh-graph-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.gh-graph-count {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.gh-graph-meta {
+  font-size: 0.9rem;
+  color: var(--fg-subtle);
+}
+
+.gh-graph-skeleton {
+  height: 10rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.gh-graph-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 17, 17, 0.18) transparent;
+}
+
+.gh-graph-scroll-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+.gh-graph-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.gh-graph-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.18);
+  border-radius: 4px;
+}
+
+.gh-graph-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gh-month-label {
+  fill: rgba(17, 17, 17, 0.62);
+  font-size: 11px;
+  font-family: var(--font-mono), monospace;
+}
+
+.gh-weekday-label {
+  fill: rgba(17, 17, 17, 0.62);
+  font-size: 11px;
+  font-family: var(--font-mono), monospace;
+}
+
+.gh-cell {
+  transition:
+    opacity 0.15s ease,
+    stroke 0.15s ease,
+    stroke-width 0.15s ease;
+  cursor: pointer;
+}
+.gh-cell:hover {
+  opacity: 0.92;
+  stroke: rgba(17, 17, 17, 0.28);
+  stroke-width: 1px;
+}
+
+.gh-tooltip {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  transform: translateX(-50%);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background: #24292f;
+  color: #e6edf3;
+  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.gh-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.gh-legend-text {
+  font-size: 0.7rem;
+  color: rgba(17, 17, 17, 0.62);
+  font-family: var(--font-mono), monospace;
+  margin: 0 0.15rem;
+}
+
+.gh-legend-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.gh-graph-error {
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  background: var(--bg-card);
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--fg-subtle);
+}
+
+.gh-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #39d353;
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* ─── Commits list ─── */
+
+.gh-commits-container {
+  border-radius: 1.25rem;
+  background: var(--bg-card);
+  padding: 1.5rem;
+}
+
+.gh-commits-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.gh-commit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.gh-commit-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.gh-commits-empty {
+  border-radius: 1.25rem;
+  background: var(--bg-card);
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+}
+
+@media (min-width: 769px) {
+  .gh-graph-container {
+    padding: 0;
+  }
+
+  .gh-graph-count {
+    font-size: 1.35rem;
+  }
+
+  .gh-commit-row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-container {
+    width: min(1120px, calc(100vw - 1.25rem));
+  }
+
+  .section-block {
+    padding-block: 4.5rem;
+  }
+
+  .ambient-grid {
+    background-size: 34px 34px;
+  }
+
+  .gh-graph-container {
+    padding: 0;
+  }
+
+  .gh-graph-count {
+    font-size: 1rem;
+  }
+
+  .gh-commits-container {
+    padding: 1.25rem;
+  }
+}
