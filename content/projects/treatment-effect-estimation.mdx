@@ -1,0 +1,29 @@
+---
+title: "Treatment Effect Estimation"
+excerpt: "A causal ML pipeline for ATE and CATE estimation on IHDP."
+---
+
+## Overview
+
+This project turns notebook-based causal inference work into a reusable Python pipeline for treatment-effect estimation on the IHDP benchmark. The goal is not just prediction accuracy, but estimating what changes under treatment and how that effect varies across units.
+
+## What It Covers
+
+- Consistent preprocessing, scaling, and aligned train/test splitting
+- Naive ATE and propensity-score stratification baselines
+- S-Learner, T-Learner, and X-Learner implementations
+- Manual DML plus EconML `LinearDML` and `CausalForestDML`
+- Evaluation outputs for PEHE, ATE error, policy curves, and artifact export
+
+## Why It Matters
+
+The project shows applied understanding of causal ML beyond standard predictive modeling. It moves from notebook experimentation into a runnable pipeline with reproducible outputs, evaluation artifacts, and model interpretation support.
+
+## Stack
+
+- Python
+- scikit-learn
+- EconML
+- DoWhy
+- SHAP
+- pandas

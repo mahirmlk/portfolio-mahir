@@ -1,0 +1,28 @@
+---
+title: "Agent Router"
+excerpt: "A split-stack chat routing app built with Next.js, FastAPI, and LangGraph."
+---
+
+## Overview
+
+Agent Router is a local full-stack application for routing chat requests through a FastAPI backend while keeping the dashboard experience in Next.js. The project is designed around practical workflow control rather than a single toy prompt box.
+
+## What It Covers
+
+- A browser dashboard for chat, model browsing, history, and provider settings
+- A FastAPI backend that validates requests and exposes `/api/chat` and `/api/health`
+- LangGraph orchestration for preparing conversation state and routing upstream model calls
+- OpenRouter integration for shared-key or user-supplied provider access
+
+## Why It Matters
+
+The value of the project is the separation of concerns: the UI owns local interaction state, while the backend owns routing, validation, and request orchestration. That makes it a stronger foundation for real AI product workflows than a single client-only demo.
+
+## Stack
+
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- FastAPI
+- LangGraph
+- OpenRouter
