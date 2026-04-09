@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import {
   fetchContributions,
+  getGitHubSetupError,
   fetchRecentCommitMessages,
   fetchRecentActivity,
 } from "@/lib/github";
 
 export async function GET() {
   try {
+    const setupError = getGitHubSetupError();
     const [contributions, recentActivity] = await Promise.all([
       fetchContributions(),
       fetchRecentActivity(),
@@ -21,6 +23,7 @@ export async function GET() {
         recentActivity,
         commits,
         fetchedAt: new Date().toISOString(),
+        error: setupError ?? undefined,
       },
       {
         headers: {

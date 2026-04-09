@@ -40,6 +40,8 @@ type GitHubFetchOptions = {
   revalidate?: number;
 };
 
+export const GITHUB_USERNAME = "mahirmlk";
+
 const GRAPHQL_QUERY = `
   query($username: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $username) {
@@ -78,14 +80,22 @@ type GraphQLResponse = {
 };
 
 function getGitHubAuth() {
-  const username = process.env.GITHUB_USERNAME;
+  const username = process.env.GITHUB_USERNAME || GITHUB_USERNAME;
   const token = process.env.GITHUB_TOKEN;
 
-  if (!username || !token) {
+  if (!token) {
     return null;
   }
 
   return { username, token };
+}
+
+export function getGitHubSetupError() {
+  if (!process.env.GITHUB_TOKEN) {
+    return "Missing GITHUB_TOKEN environment variable.";
+  }
+
+  return null;
 }
 
 async function fetchGitHubJson<T>(url: string, options?: GitHubFetchOptions) {
