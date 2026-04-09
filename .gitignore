@@ -1,0 +1,11 @@
+.env
+.env.local
+node_modules/
+.next/
+out/
+.tmp/
+.tmp-linear-regression/
+*.log
+*.err
+*.tsbuildinfo
+out.html
