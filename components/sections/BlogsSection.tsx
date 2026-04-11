@@ -24,13 +24,13 @@ export function BlogsSection() {
             <p className="section-eyebrow">Blogs</p>
             <h2 className="section-title">Writing that turns technical shifts into usable mental models.</h2>
             <p className="section-copy mt-5">
-              Essays on AI systems, deployment tradeoffs, retrieval reliability, and the practical
-              design decisions behind shipping model-powered products.
+              Writing on model behavior, retrieval systems, evaluation, and deployment tradeoffs
+              behind reliable, production-grade machine learning systems.
             </p>
           </div>
 
           <div className="flex items-center justify-between gap-4">
-            <p className="mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-subtle)]">Latest essay</p>
+            <p className="mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-subtle)]">Featured post</p>
             <Link
               href="/blog"
               className="mono inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
@@ -71,10 +71,6 @@ export function BlogsSection() {
               </span>
             </div>
           </Link>
-
-          <p className="mono mt-5 text-[10px] uppercase tracking-[0.18em] text-[var(--fg-subtle)] opacity-55">
-            More coming soon
-          </p>
         </div>
       </Reveal>
     </section>
