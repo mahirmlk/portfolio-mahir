@@ -23,21 +23,27 @@ export function AboutSection({ standalone = false }: AboutSectionProps) {
             applications.
           </p>
           <p className="section-copy">
-            The work sits at the intersection of machine learning engineering and software
-            development, where models become part of larger systems rather than standalone
-            experiments. Emphasis is placed on building systems that are maintainable, observable,
-            and capable of operating under real workloads.
+            The work is centered on turning machine learning ideas into systems that can actually
+            be shipped, tested, and trusted. That means focusing as much on integration,
+            evaluation, and operational reliability as on the models themselves.
           </p>
-          <p className="section-copy">
-            The direction remains consistent: turning models and data into usable software. That
-            includes treating data quality, prompt design, system latency, and interface behavior
-            as core engineering concerns rather than secondary details.
-          </p>
-          <p className="section-copy">
-            Recent efforts focus on retrieval-augmented systems, tool-using agents, structured
-            evaluation of model behavior, and experimentation with workflows where language models
-            interact with external tools, APIs, and data sources.
-          </p>
+
+          <div className="pt-4">
+            <p className="section-eyebrow">
+              Education &amp; Background
+            </p>
+            <div className="mt-4 space-y-5">
+              <p className="section-copy">
+                BSc in Mathematics &amp; Science, not CS, but the probability and linear algebra
+                ended up mattering more than I expected.
+              </p>
+              <p className="section-copy">
+                Got serious about ML in 2024. Built my first model, got into agents and LangGraph,
+                and it stopped feeling like learning and started feeling like building. Everything
+                since has been self-taught and project-driven.
+              </p>
+            </div>
+          </div>
         </Reveal>
 
         <Reveal delay={140} className="flex items-start justify-center lg:justify-end">
