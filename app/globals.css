@@ -463,11 +463,27 @@ body {
 
 @media (max-width: 768px) {
   .site-container {
-    width: min(1120px, calc(100vw - 1.25rem));
+    width: min(1120px, calc(100vw - 1.5rem));
   }
 
   .section-block {
-    padding-block: 4.5rem;
+    padding-block: 4rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+
+  .section-title {
+    margin-top: 0.7rem;
+    font-size: clamp(1.85rem, 8.6vw, 2.55rem);
+    line-height: 1.02;
+  }
+
+  .section-copy {
+    font-size: 0.98rem;
+    line-height: 1.75;
   }
 
   .ambient-grid {

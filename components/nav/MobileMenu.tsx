@@ -24,14 +24,14 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
-          className="site-container mt-3 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-2xl md:hidden"
+          className="site-container mt-2 rounded-[1.35rem] border border-[var(--border)] bg-[var(--bg-card)] p-4 shadow-2xl md:hidden"
         >
           <nav className="flex flex-col gap-4">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="mono text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
+                className="mono rounded-xl px-1 py-1 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
                 onClick={onClose}
               >
                 {link.label}

@@ -36,11 +36,11 @@ export function HeroActions() {
 
   return (
     <>
-      <div className="mt-8 flex flex-wrap items-center gap-4">
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
         <motion.button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-3 rounded-none bg-[#121a31] px-8 py-4 text-[0.9rem] font-semibold text-white shadow-[0_18px_32px_rgba(18,26,49,0.2)] transition hover:bg-[#0f1730]"
+          className="inline-flex w-full items-center justify-between gap-3 rounded-none bg-[#121a31] px-6 py-4 text-[0.9rem] font-semibold text-white shadow-[0_18px_32px_rgba(18,26,49,0.2)] transition hover:bg-[#0f1730] sm:w-auto sm:justify-center sm:px-8"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.985 }}
         >
@@ -50,7 +50,7 @@ export function HeroActions() {
 
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-3 border border-[var(--border)] bg-white px-8 py-4 text-[0.9rem] font-semibold text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-card)]"
+          className="inline-flex w-full items-center justify-between gap-3 border border-[var(--border)] bg-white px-6 py-4 text-[0.9rem] font-semibold text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-card)] sm:w-auto sm:justify-center sm:px-8"
         >
           <span>Explore work</span>
           <ArrowRight size={18} strokeWidth={1.8} />
@@ -60,14 +60,14 @@ export function HeroActions() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="fixed inset-0 z-[80] overflow-y-auto bg-black/38 px-4 py-6 backdrop-blur-md"
+            className="fixed inset-0 z-[80] overflow-y-auto bg-black/38 px-3 py-4 backdrop-blur-md sm:px-4 sm:py-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(false)}
           >
             <motion.div
-              className="mx-auto my-auto w-full max-w-[32rem] rounded-[1.35rem] border border-white/55 bg-[rgba(255,255,255,0.72)] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl backdrop-saturate-150 sm:p-6"
+              className="mx-auto my-auto w-full max-w-[32rem] rounded-[1.1rem] border border-white/55 bg-[rgba(255,255,255,0.72)] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl backdrop-saturate-150 sm:rounded-[1.35rem] sm:p-6"
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 14, scale: 0.98 }}
@@ -77,7 +77,7 @@ export function HeroActions() {
               <div className="max-h-[min(86vh,44rem)] overflow-y-auto pr-1">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-[1.5rem] font-black leading-none tracking-[-0.05em] text-[var(--fg)] sm:text-[1.75rem]">
+                  <h3 className="text-[1.35rem] font-black leading-none tracking-[-0.05em] text-[var(--fg)] sm:text-[1.75rem]">
                     Send a Message
                   </h3>
                   <p className="mt-3 text-[0.98rem] text-[var(--fg-subtle)] sm:text-[1rem]">

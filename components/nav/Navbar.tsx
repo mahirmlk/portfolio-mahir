@@ -50,17 +50,17 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-4 z-50 flex justify-center px-4 transition-all duration-300",
+        "fixed inset-x-0 top-3 z-50 flex justify-center px-3 transition-all duration-300 md:top-4 md:px-4",
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-[140%] opacity-0"
       )}
     >
-      <div className="glass-nav flex h-[4.75rem] w-full max-w-6xl items-center justify-between rounded-full px-4 sm:px-6">
+      <div className="glass-nav flex h-[4.1rem] w-full max-w-6xl items-center justify-between rounded-[1.6rem] px-3 sm:px-4 md:h-[4.75rem] md:rounded-full md:px-4 lg:px-6">
         <Link
           href="/"
           aria-label="Go to home"
-          className="glass-chip inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[var(--fg)] transition hover:bg-[var(--bg-elevated)] hover:text-[var(--fg)] sm:h-12 sm:w-12"
+          className="glass-chip inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[var(--fg)] transition hover:bg-[var(--bg-elevated)] hover:text-[var(--fg)] sm:h-11 sm:w-11 md:h-12 md:w-12"
         >
-          <House className="h-[18px] w-[18px] sm:h-5 sm:w-5" strokeWidth={2.1} />
+          <House className="h-[17px] w-[17px] sm:h-[18px] sm:w-[18px] md:h-5 md:w-5" strokeWidth={2.1} />
         </Link>
 
         <div className="flex items-center gap-3">
@@ -88,7 +88,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((current) => !current)}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-mid)] text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-elevated)] md:hidden"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-mid)] text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-elevated)] md:hidden"
               aria-label="Toggle navigation"
             >
               <Menu size={16} />
