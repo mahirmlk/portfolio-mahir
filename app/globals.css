@@ -136,6 +136,7 @@ body {
 
 .section-copy {
   max-width: 44rem;
+  font-family: var(--font-body), sans-serif;
   font-size: 1rem;
   line-height: 1.85;
   color: var(--fg-muted);
