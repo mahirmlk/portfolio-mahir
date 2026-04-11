@@ -67,10 +67,6 @@ export function TheorySection() {
               </span>
             </div>
           </Link>
-
-          <p className="mono mt-5 text-[10px] uppercase tracking-[0.18em] text-[var(--fg-subtle)] opacity-55">
-            More implementations coming soon
-          </p>
         </div>
       </Reveal>
     </section>
