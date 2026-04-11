@@ -63,7 +63,7 @@ export function ProjectsSection() {
 
             <Link
               href="/work"
-              className="mono inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
+              className="mono inline-flex items-center gap-2 self-start text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)] md:self-auto"
             >
               Full archive <ArrowRight size={14} />
             </Link>

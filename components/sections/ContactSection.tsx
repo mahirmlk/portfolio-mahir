@@ -62,7 +62,7 @@ export function ContactSection() {
       <Reveal>
         <p className="section-eyebrow">What's Next?</p>
         <h2 className="section-title">Let's build something together.</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--fg-muted)]">
+        <p className="mx-auto mt-5 max-w-2xl text-[0.98rem] leading-7 text-[var(--fg-muted)] sm:text-base sm:leading-8">
           Actively building ML systems, LLM pipelines, and agentic AI — open to roles,
           internships, and meaningful collaborations.
         </p>
@@ -70,14 +70,16 @@ export function ContactSection() {
 
       <Reveal delay={100}>
         <div className="mt-8 flex justify-center">
-          <MagneticButton href="mailto:mahirmalikx@gmail.com">Say Hello</MagneticButton>
+          <MagneticButton href="mailto:mahirmalikx@gmail.com" className="w-full justify-center sm:w-auto">
+            Say Hello
+          </MagneticButton>
         </div>
       </Reveal>
 
       <Reveal delay={150}>
         <a
           href="mailto:mahirmalikx@gmail.com"
-          className="mono mt-8 inline-block border-b border-dashed border-[var(--border-mid)] pb-1 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
+          className="mono mt-8 inline-block break-all border-b border-dashed border-[var(--border-mid)] pb-1 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
         >
           mahirmalikx@gmail.com
         </a>
@@ -91,7 +93,7 @@ export function ContactSection() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noreferrer" : undefined}
-              className="mono inline-flex items-center gap-2 rounded-md border border-[var(--border-mid)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
+              className="mono inline-flex min-w-[8.5rem] items-center justify-center gap-2 rounded-md border border-[var(--border-mid)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
             >
               <Icon className="h-[14px] w-[14px] shrink-0" />
               {label}
@@ -102,7 +104,7 @@ export function ContactSection() {
       </Reveal>
 
       <Reveal delay={240}>
-        <footer className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-[var(--border)] pt-6 text-left md:flex-row md:items-center">
+        <footer className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pt-6 text-center md:flex-row md:items-center md:text-left">
           <a
             href="/"
             aria-label="Go to home"
@@ -110,7 +112,7 @@ export function ContactSection() {
           >
             <House size={16} strokeWidth={2} />
           </a>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="/" className="mono text-[11px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
               Home
             </a>

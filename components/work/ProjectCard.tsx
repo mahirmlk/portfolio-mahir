@@ -27,7 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             alt={`${project.title} preview`}
             width={1400}
             height={900}
-            className="h-[188px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.01] md:h-[204px]"
+            className="h-[172px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.01] md:h-[204px]"
           />
         </div>
       </div>
@@ -58,7 +58,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="mt-4.5 flex flex-wrap items-center gap-2 border-t border-[var(--border)] pt-3">
           <Link
             href={`/work/${project.slug}`}
-            className="mono inline-flex items-center gap-2 rounded-full border border-[var(--border-mid)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg)] transition hover:border-[var(--border-hover)]"
+            className="mono inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--border-mid)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg)] transition hover:border-[var(--border-hover)] sm:w-auto"
           >
             View details <ArrowUpRight size={14} />
           </Link>
@@ -67,7 +67,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="mono inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
+              className="mono inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--border)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)] sm:w-auto"
             >
               Source code <Github size={14} />
             </a>

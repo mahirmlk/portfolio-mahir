@@ -13,7 +13,7 @@ export function AboutSection({ standalone = false }: AboutSectionProps) {
         <h2 className="section-title">From models to working systems.</h2>
       </Reveal>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.95fr)] lg:items-start">
+      <div className="mt-10 grid gap-8 lg:mt-12 lg:gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.95fr)] lg:items-start">
         <Reveal className="space-y-5" delay={80}>
           <p className="section-copy">
             Work focuses on the engineering side of modern AI systems: machine learning models, LLM
@@ -53,7 +53,7 @@ export function AboutSection({ standalone = false }: AboutSectionProps) {
             width={530}
             height={624}
             priority={standalone}
-            className="h-auto w-full max-w-[28rem] object-contain opacity-90 mix-blend-multiply contrast-[1.08] lg:max-w-[30rem]"
+            className="h-auto w-full max-w-[22rem] object-contain opacity-90 mix-blend-multiply contrast-[1.08] sm:max-w-[25rem] lg:max-w-[30rem]"
           />
         </Reveal>
       </div>
