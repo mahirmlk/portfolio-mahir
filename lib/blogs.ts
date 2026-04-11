@@ -15,7 +15,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "efficiency-era-of-ai",
-    title: "The Efficiency Era of AI",
+    title: "Why Efficient Models Are Winning",
     description:
       "Why raw parameter count is no longer the main story, and how small, disciplined models are reshaping deployment economics.",
     excerpt:
