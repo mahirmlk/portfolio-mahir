@@ -63,9 +63,8 @@ export function ContactSection() {
         <p className="section-eyebrow">What's Next?</p>
         <h2 className="section-title">Let's build something together.</h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--fg-muted)]">
-          Still learning, building, and growing through real projects across AI, software, and product
-          thinking. Open to thoughtful conversations, feedback, and opportunities that help me keep
-          improving.
+          Actively building ML systems, LLM pipelines, and agentic AI — open to roles,
+          internships, and meaningful collaborations.
         </p>
       </Reveal>
 

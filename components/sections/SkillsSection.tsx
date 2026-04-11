@@ -90,7 +90,7 @@ const stackCategories: StackCategory[] = [
     ]
   },
   {
-    title: "Frontend (Vibe Coding)",
+    title: "Frontend",
     items: [
       { name: "TypeScript", src: "https://cdn.simpleicons.org/typescript/3178C6" },
       { name: "React", src: "https://cdn.simpleicons.org/react/61DAFB" },
