@@ -22,7 +22,7 @@ export function SnapshotSection() {
               </div>
               <div className="mt-5 flex items-center gap-3 text-sm text-[var(--fg-muted)]">
                 <span className="h-2 w-2 rounded-full bg-[var(--accent-green)] animate-pulse-dot" />
-                Heads down building and learning through current projects
+                Actively building and open to Machine Learning/AI Engineer roles and internships
               </div>
             </div>
           </Reveal>
