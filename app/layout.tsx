@@ -4,6 +4,10 @@ import { Navbar } from "@/components/nav/Navbar";
 import { Noise } from "@/components/ui/Noise";
 import { inter, jetbrainsMono, sora, playfairDisplay, montserrat } from "@/lib/fonts";
 import "@/app/globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mahirmalik.dev"),
@@ -34,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} ${sora.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
+      className={cn(inter.variable, jetbrainsMono.variable, sora.variable, playfairDisplay.variable, montserrat.variable, "font-sans", geist.variable)}
     >
       <body suppressHydrationWarning className="page-shell min-h-screen overflow-x-hidden antialiased">
         <div aria-hidden className="ambient-layer">
