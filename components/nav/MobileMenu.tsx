@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Github } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface MobileMenuProps {
   open: boolean;
@@ -9,11 +11,10 @@ interface MobileMenuProps {
 }
 
 const links = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
   { href: "/blog", label: "Blog" },
-  { href: "#contact", label: "Contact" }
+  { href: "/#contact", label: "Contact" }
 ];
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
@@ -24,20 +25,41 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
-          className="site-container mt-2 rounded-[1.35rem] border border-[var(--border)] bg-[var(--bg-card)] p-4 shadow-2xl md:hidden"
+          className="mx-auto w-[min(1180px,calc(100vw-1.5rem))] border-x border-b border-[var(--nav-line)] bg-[color-mix(in_srgb,var(--nav-shell)_96%,transparent)] px-4 pb-4 pt-3 shadow-[0_26px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl md:hidden"
         >
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col gap-2">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="mono rounded-xl px-1 py-1 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
+                className={cn(
+                  "mono rounded-2xl border border-transparent px-4 py-3 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)] transition",
+                  "hover:border-[var(--border-mid)] hover:bg-[var(--nav-pill)] hover:text-[var(--fg)]"
+                )}
                 onClick={onClose}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
+
+          <div className="mt-4 grid grid-cols-2 gap-2 border-t border-[var(--nav-line)] pt-4">
+            <Link
+              href="/blog"
+              className="mono inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--border-mid)] bg-[var(--nav-pill)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg)] transition hover:border-[var(--border-hover)]"
+              onClick={onClose}
+            >
+              Explore <ArrowUpRight className="size-3.5" />
+            </Link>
+            <a
+              href="https://github.com/mahirmalik"
+              target="_blank"
+              rel="noreferrer"
+              className="mono inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--border-mid)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
+            >
+              GitHub <Github className="size-3.5" />
+            </a>
+          </div>
         </motion.div>
       ) : null}
     </AnimatePresence>

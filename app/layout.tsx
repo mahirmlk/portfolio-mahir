@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Navbar } from "@/components/nav/Navbar";
 import { Noise } from "@/components/ui/Noise";
 import { inter, jetbrainsMono, sora, playfairDisplay, montserrat } from "@/lib/fonts";
@@ -34,12 +35,30 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const themeScript = `
+    (() => {
+      try {
+        const storedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : systemTheme;
+        const root = document.documentElement;
+        root.classList.toggle("dark", theme === "dark");
+        root.style.colorScheme = theme;
+      } catch {}
+    })();
+  `;
+
   return (
     <html
       lang="en"
       suppressHydrationWarning
       className={cn(inter.variable, jetbrainsMono.variable, sora.variable, playfairDisplay.variable, montserrat.variable, "font-sans", geist.variable)}
     >
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
+      </head>
       <body suppressHydrationWarning className="page-shell min-h-screen overflow-x-hidden antialiased">
         <div aria-hidden className="ambient-layer">
           <div className="ambient-grid" />
@@ -49,7 +68,7 @@ export default function RootLayout({
         </div>
         <Noise />
         <Navbar />
-        <main className="relative z-10 pt-20">{children}</main>
+        <main className="relative z-10 pt-24 md:pt-28">{children}</main>
       </body>
     </html>
   );

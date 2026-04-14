@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { House, Menu } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { Github, House, Menu, Search } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { MobileMenu } from "@/components/nav/MobileMenu";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/blog", label: "Blogs" },
-  { href: "/#skills", label: "Skills" },
+  { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" }
 ];
 
@@ -19,6 +20,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("");
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -47,52 +49,139 @@ export function Navbar() {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const sectionIds = navLinks
+      .filter((link) => link.href.startsWith("/#"))
+      .map((link) => link.href.slice(2));
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (!sections.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(`#${visibleEntries[0].target.id}`);
+          return;
+        }
+
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          const rect = contactSection.getBoundingClientRect();
+          const inViewport = rect.top < window.innerHeight * 0.75 && rect.bottom > window.innerHeight * 0.2;
+          setActiveSection(inViewport ? "#contact" : "");
+        }
+      },
+      {
+        rootMargin: "-35% 0px -35% 0px",
+        threshold: [0.15, 0.35, 0.6]
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    const initialHash = window.location.hash;
+    if (initialHash && sectionIds.includes(initialHash.slice(1))) {
+      setActiveSection(initialHash);
+    }
+
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  const isActiveLink = (href: string) => {
+    if (href.startsWith("/#")) {
+      const targetHash = href.slice(1);
+      return pathname === "/" && activeSection === targetHash;
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-3 z-50 flex justify-center px-3 transition-all duration-300 md:top-4 md:px-4",
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-[140%] opacity-0"
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-[110%] opacity-0"
       )}
     >
-      <div className="glass-nav flex h-[4.1rem] w-full max-w-6xl items-center justify-between rounded-[1.6rem] px-3 sm:px-4 md:h-[4.75rem] md:rounded-full md:px-4 lg:px-6">
-        <Link
-          href="/"
-          aria-label="Go to home"
-          className="glass-chip inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[var(--fg)] transition hover:bg-[var(--bg-elevated)] hover:text-[var(--fg)] sm:h-11 sm:w-11 md:h-12 md:w-12"
-        >
-          <House className="h-[17px] w-[17px] sm:h-[18px] sm:w-[18px] md:h-5 md:w-5" strokeWidth={2.1} />
-        </Link>
+      <div className="nav-shell">
+        <div className="nav-frame">
+          <Button variant="ghost" size="icon-sm" asChild className="nav-home-button">
+            <Link href="/" aria-label="Go to home">
+              <House className="size-4" strokeWidth={1.9} />
+            </Link>
+          </Button>
 
-        <div className="flex items-center gap-3">
-          <nav className="glass-chip hidden items-center gap-1 rounded-full px-2 py-2 md:flex">
-            {navLinks.map((link) => {
-              const active = pathname === link.href || (pathname.startsWith(`${link.href}/`) && link.href !== "/");
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "mono rounded-full px-4 py-2.5 text-[11px] uppercase tracking-[0.16em] transition-colors",
-                    active
-                      ? "bg-[var(--fg)] text-[var(--bg)] shadow-[0_10px_24px_rgba(17,17,17,0.12)]"
-                      : "text-[var(--fg-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--fg)]"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+          <nav className="nav-links hidden md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => {
+                  if (link.href.startsWith("/#")) {
+                    setActiveSection(link.href.slice(1));
+                  }
+                }}
+                className={cn("nav-link mono", isActiveLink(link.href) && "nav-link-active")}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          <div className="glass-chip flex items-center gap-2 rounded-full p-1.5 md:hidden">
-            <button
+          <div className="nav-actions">
+            <Button variant="ghost" size="sm" asChild className="nav-search hidden lg:inline-flex">
+              <Link href="/blog">
+                <Search className="size-4" strokeWidth={1.9} />
+                <span>Explore</span>
+                <span className="nav-kbd">Ctrl</span>
+                <span className="nav-kbd">K</span>
+              </Link>
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              asChild
+              className="nav-icon-button hidden sm:inline-flex"
+            >
+              <a
+                href="https://github.com/mahirmalik"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open GitHub profile"
+              >
+                <Github className="size-4" strokeWidth={1.9} />
+              </a>
+            </Button>
+
+            <span className="nav-divider hidden sm:block" />
+
+            <AnimatedThemeToggler aria-label="Toggle theme" className="nav-icon-button inline-flex" />
+
+            <Button
               type="button"
+              variant="ghost"
+              size="icon-sm"
               onClick={() => setOpen((current) => !current)}
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-mid)] text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-elevated)] md:hidden"
+              className="nav-icon-button md:hidden"
               aria-label="Toggle navigation"
             >
-              <Menu size={16} />
-            </button>
+              <Menu className="size-4" strokeWidth={1.9} />
+            </Button>
           </div>
         </div>
       </div>
