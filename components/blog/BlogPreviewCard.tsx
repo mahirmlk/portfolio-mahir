@@ -16,7 +16,7 @@ export function BlogPreviewCard({ post }: { post: BlogPost }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block aspect-square rounded-[1.1rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(245,245,245,0.95))] p-7 transition duration-300 hover:-translate-y-1 hover:border-[var(--border-hover)] hover:shadow-[0_28px_70px_rgba(17,17,17,0.08)]"
+      className="group block aspect-square rounded-[1.1rem] border border-[var(--border)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--bg-card)_96%,transparent),color-mix(in_srgb,var(--bg-raised)_92%,transparent))] p-7 transition duration-300 hover:-translate-y-1 hover:border-[var(--border-hover)] hover:shadow-[0_28px_70px_rgba(17,17,17,0.08)]"
     >
       <div className="flex h-full flex-col">
         <div className="flex items-start justify-between gap-4">

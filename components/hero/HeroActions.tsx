@@ -50,7 +50,7 @@ export function HeroActions() {
 
         <Link
           href="/#projects"
-          className="inline-flex w-full items-center justify-between gap-3 border border-[var(--border)] bg-white px-6 py-4 text-[0.9rem] font-semibold text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-card)] sm:w-auto sm:justify-center sm:px-8"
+          className="inline-flex w-full items-center justify-between gap-3 border border-[var(--border)] bg-[var(--bg-card)] px-6 py-4 text-[0.9rem] font-semibold text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-elevated)] sm:w-auto sm:justify-center sm:px-8"
         >
           <span>Explore work</span>
           <ArrowRight size={18} strokeWidth={1.8} />
@@ -67,7 +67,7 @@ export function HeroActions() {
             onClick={() => setOpen(false)}
           >
             <motion.div
-              className="mx-auto my-auto w-full max-w-[32rem] rounded-[1.1rem] border border-white/55 bg-[rgba(255,255,255,0.72)] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl backdrop-saturate-150 sm:rounded-[1.35rem] sm:p-6"
+              className="mx-auto my-auto w-full max-w-[32rem] rounded-[1.1rem] border border-[var(--border-mid)] bg-[color-mix(in_srgb,var(--bg-card)_92%,transparent)] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl backdrop-saturate-150 sm:rounded-[1.35rem] sm:p-6"
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 14, scale: 0.98 }}
@@ -87,7 +87,7 @@ export function HeroActions() {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="rounded-full border border-[var(--border)] bg-white/70 p-2 text-[var(--fg)] transition hover:opacity-70"
+                  className="rounded-full border border-[var(--border)] bg-[color-mix(in_srgb,var(--bg)_85%,transparent)] p-2 text-[var(--fg)] transition hover:opacity-70"
                   aria-label="Close conversation modal"
                 >
                   <X size={18} strokeWidth={1.8} />
@@ -102,9 +102,9 @@ export function HeroActions() {
                       value={form.name}
                       onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
                       placeholder="Your Name"
-                      className="w-full rounded-[0.9rem] border border-[var(--border-mid)] bg-white/78 px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[#7d8aa3] focus:border-[#121a31]"
+                      className="w-full rounded-[0.9rem] border border-[var(--border-mid)] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[var(--fg-subtle)] focus:border-[var(--fg)]"
                     />
-                    <span className="mt-2 block text-sm text-[#7d8aa3]">Please enter your full name.</span>
+                    <span className="mt-2 block text-sm text-[var(--fg-subtle)]">Please enter your full name.</span>
                   </label>
 
                   <label className="block">
@@ -114,9 +114,9 @@ export function HeroActions() {
                       value={form.email}
                       onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
                       placeholder="email@example.com"
-                      className="w-full rounded-[0.9rem] border border-[var(--border-mid)] bg-white/78 px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[#7d8aa3] focus:border-[#121a31]"
+                      className="w-full rounded-[0.9rem] border border-[var(--border-mid)] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[var(--fg-subtle)] focus:border-[var(--fg)]"
                     />
-                    <span className="mt-2 block text-sm text-[#7d8aa3]">I'll use this email to contact you.</span>
+                    <span className="mt-2 block text-sm text-[var(--fg-subtle)]">I&apos;ll use this email to contact you.</span>
                   </label>
                 </div>
 
@@ -126,9 +126,9 @@ export function HeroActions() {
                     value={form.subject}
                     onChange={(event) => setForm((current) => ({ ...current, subject: event.target.value }))}
                     placeholder="Subject"
-                    className="w-full rounded-[0.9rem] border border-[var(--border-mid)] bg-white/78 px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[#7d8aa3] focus:border-[#121a31]"
+                    className="w-full rounded-[0.9rem] border border-[var(--border-mid)] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[var(--fg-subtle)] focus:border-[var(--fg)]"
                   />
-                  <span className="mt-2 block text-sm text-[#7d8aa3]">Please enter a subject.</span>
+                  <span className="mt-2 block text-sm text-[var(--fg-subtle)]">Please enter a subject.</span>
                 </label>
 
                 <label className="block">
@@ -138,9 +138,9 @@ export function HeroActions() {
                     onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
                     placeholder="Your message..."
                     rows={5}
-                    className="w-full resize-none rounded-[0.9rem] border border-[var(--border-mid)] bg-white/78 px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[#7d8aa3] focus:border-[#121a31]"
+                    className="w-full resize-none rounded-[0.9rem] border border-[var(--border-mid)] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-4 py-3 text-base text-[var(--fg)] outline-none transition placeholder:text-[var(--fg-subtle)] focus:border-[var(--fg)]"
                   />
-                  <span className="mt-2 block text-sm text-[#7d8aa3]">Please enter your message.</span>
+                  <span className="mt-2 block text-sm text-[var(--fg-subtle)]">Please enter your message.</span>
                 </label>
 
                 <button

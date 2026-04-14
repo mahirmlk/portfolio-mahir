@@ -20,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       <div className="relative border-b border-[var(--border)] bg-[linear-gradient(180deg,rgba(17,17,17,0.02)_0%,rgba(17,17,17,0.01)_100%)] p-3">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(17,17,17,0.045),transparent_58%)]" />
-        <div className="relative overflow-hidden rounded-[0.75rem] border border-[var(--border)] bg-white">
+        <div className="relative overflow-hidden rounded-[0.75rem] border border-[var(--border)] bg-[var(--bg)]">
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.02)_0%,rgba(17,17,17,0.005)_100%)]" />
           <Image
             src={project.image}

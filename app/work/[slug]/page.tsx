@@ -188,7 +188,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.features.map((feature) => (
             <div
               key={feature}
-              className="rounded-[1rem] border border-[var(--border)] bg-white px-4 py-3 text-sm leading-7 text-[var(--fg-muted)]"
+              className="rounded-[1rem] border border-[var(--border)] bg-[var(--bg-card)] px-4 py-3 text-sm leading-7 text-[var(--fg-muted)]"
             >
               {feature}
             </div>
