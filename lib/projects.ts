@@ -14,6 +14,11 @@ export const projects: Project[] = [
       "OpenRouter-backed model routing with shared-key or user-supplied provider setup",
       "Local-first settings and conversation history stored in the browser"
     ],
+    metrics: [
+      { label: "Stack", value: "Full-stack" },
+      { label: "Flow", value: "LangGraph" },
+      { label: "Storage", value: "Local-first" }
+    ],
     year: 2026,
     tags: ["Next.js", "FastAPI", "LangGraph", "OpenRouter", "Tailwind CSS", "TypeScript"],
     image: "/assets/img/projects/screenshots/agent-router.svg",
@@ -32,6 +37,11 @@ export const projects: Project[] = [
       "Manual DML plus EconML LinearDML and CausalForestDML implementations",
       "Evaluation outputs for PEHE, ATE error, predictions, and summary metrics",
       "Interpretability and policy artifacts including SHAP-based analysis and policy curves"
+    ],
+    metrics: [
+      { label: "Methods", value: "6+" },
+      { label: "Dataset", value: "IHDP" },
+      { label: "Outputs", value: "ATE/CATE" }
     ],
     year: 2026,
     tags: ["Python", "EconML", "DoWhy", "scikit-learn", "SHAP", "Pandas"],
