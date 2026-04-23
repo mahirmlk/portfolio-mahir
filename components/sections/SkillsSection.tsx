@@ -3,6 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 interface StackLogo {
   name: string;
   src: string;
+  darkSrc?: string;
 }
 
 interface StackCategory {
@@ -85,8 +86,16 @@ const stackCategories: StackCategory[] = [
     title: "Tools",
     items: [
       { name: "Git", src: "https://cdn.simpleicons.org/git/F05032" },
-      { name: "GitHub", src: "https://cdn.simpleicons.org/github/111111" },
-      { name: "Vercel", src: "https://cdn.simpleicons.org/vercel/111111" }
+      {
+        name: "GitHub",
+        src: "https://cdn.simpleicons.org/github/111111",
+        darkSrc: "https://cdn.simpleicons.org/github/f6f7f8"
+      },
+      {
+        name: "Vercel",
+        src: "https://cdn.simpleicons.org/vercel/111111",
+        darkSrc: "https://cdn.simpleicons.org/vercel/f6f7f8"
+      }
     ]
   },
   {
@@ -94,7 +103,11 @@ const stackCategories: StackCategory[] = [
     items: [
       { name: "TypeScript", src: "https://cdn.simpleicons.org/typescript/3178C6" },
       { name: "React", src: "https://cdn.simpleicons.org/react/61DAFB" },
-      { name: "Next.js", src: "https://cdn.simpleicons.org/nextdotjs/111111" },
+      {
+        name: "Next.js",
+        src: "https://cdn.simpleicons.org/nextdotjs/111111",
+        darkSrc: "https://cdn.simpleicons.org/nextdotjs/f6f7f8"
+      },
       { name: "Tailwind CSS", src: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
       { name: "Figma", src: "https://cdn.simpleicons.org/figma/F24E1E" }
     ]
@@ -130,12 +143,29 @@ export function SkillsSection() {
                       title={item.name}
                       aria-label={item.name}
                     >
-                      <img
-                        src={item.src}
-                        alt={item.name}
-                        className="h-9 w-9 object-contain"
-                        loading="lazy"
-                      />
+                      {item.darkSrc ? (
+                        <>
+                          <img
+                            src={item.src}
+                            alt={item.name}
+                            className="h-9 w-9 object-contain dark:hidden"
+                            loading="lazy"
+                          />
+                          <img
+                            src={item.darkSrc}
+                            alt={item.name}
+                            className="hidden h-9 w-9 object-contain dark:block"
+                            loading="lazy"
+                          />
+                        </>
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.name}
+                          className="h-9 w-9 object-contain"
+                          loading="lazy"
+                        />
+                      )}
                     </div>
                   ))}
                 </div>
