@@ -72,9 +72,9 @@ export function ProjectsSection() {
       </Reveal>
 
       <Reveal delay={120} className="mt-8">
-        <div className="mx-auto grid max-w-[980px] gap-4 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-[1080px] gap-5 lg:grid-cols-2">
           {visibleProjects.map((project) => (
-            <div key={project.slug} className="mx-auto w-full max-w-[470px]">
+            <div key={project.slug} className="mx-auto w-full max-w-[520px]">
               <ProjectCard project={project} />
             </div>
           ))}
