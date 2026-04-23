@@ -26,6 +26,11 @@
   --nav-panel: rgba(255, 255, 255, 0.82);
   --nav-pill: rgba(17, 17, 17, 0.04);
   --nav-kbd: rgba(17, 17, 17, 0.05);
+  --cta-bg: #2f3a32;
+  --cta-fg: #fffdf7;
+  --cta-hover: #263027;
+  --cta-shadow: rgba(47, 58, 50, 0.22);
+  --principle-shadow: rgba(17, 17, 17, 0.05);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -742,6 +747,11 @@ body {
   --nav-panel: rgba(15, 18, 22, 0.84);
   --nav-pill: rgba(255, 255, 255, 0.05);
   --nav-kbd: rgba(255, 255, 255, 0.08);
+  --cta-bg: #d8decd;
+  --cta-fg: #0b0f0d;
+  --cta-hover: #eef2e7;
+  --cta-shadow: rgba(216, 222, 205, 0.18);
+  --principle-shadow: rgba(246, 247, 248, 0.08);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);
