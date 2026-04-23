@@ -40,7 +40,7 @@ export function HeroActions() {
         <motion.button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex w-full items-center justify-between gap-3 rounded-none bg-[#121a31] px-6 py-4 text-[0.9rem] font-semibold text-white shadow-[0_18px_32px_rgba(18,26,49,0.2)] transition hover:bg-[#0f1730] sm:w-auto sm:justify-center sm:px-8"
+          className="inline-flex w-full items-center justify-between gap-3 rounded-none bg-[var(--cta-bg)] px-6 py-4 text-[0.9rem] font-semibold text-[var(--cta-fg)] shadow-[0_18px_32px_var(--cta-shadow)] transition hover:bg-[var(--cta-hover)] sm:w-auto sm:justify-center sm:px-8"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.985 }}
         >
@@ -145,7 +145,7 @@ export function HeroActions() {
 
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-3 rounded-[0.8rem] bg-[#121a31] px-6 py-3 text-base font-semibold text-white transition hover:bg-[#0f1730]"
+                  className="inline-flex items-center gap-3 rounded-[0.8rem] bg-[var(--cta-bg)] px-6 py-3 text-base font-semibold text-[var(--cta-fg)] transition hover:bg-[var(--cta-hover)]"
                 >
                   <span>Send it!</span>
                   <ArrowRight size={18} strokeWidth={1.8} />
