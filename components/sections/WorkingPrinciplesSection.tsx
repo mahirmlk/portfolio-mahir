@@ -20,7 +20,7 @@ export function WorkingPrinciplesSection() {
             {shadowWords.map((word, index) => (
               <motion.div
                 key={`${word}-${index}`}
-                className="absolute left-0 text-[clamp(3.8rem,22vw,7rem)] font-black uppercase leading-none tracking-[-0.08em] text-black/[0.05] md:left-[4%] md:text-[clamp(5.25rem,16vw,12.75rem)]"
+                className="absolute left-0 text-[clamp(3.8rem,22vw,7rem)] font-black uppercase leading-none tracking-[-0.08em] text-[var(--principle-shadow)] md:left-[4%] md:text-[clamp(5.25rem,16vw,12.75rem)]"
                 style={{ top: `${index === 0 ? 6 : index === 1 ? 33 : 60}%` }}
                 initial={{ opacity: 0, x: 18 }}
                 whileInView={{ opacity: 1, x: 0 }}
