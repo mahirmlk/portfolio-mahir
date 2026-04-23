@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Project } from "@/types";
 import { TechBadge } from "@/components/work/TechBadge";
@@ -12,53 +12,82 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const highlights = project.features.slice(0, 3);
+
   return (
     <motion.article
-      className="card-hover group overflow-hidden rounded-[1.05rem] border border-[var(--border)] bg-[var(--bg-card)]"
-      whileHover={{ y: -6 }}
+      className="card-hover group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-[var(--border)] bg-[color-mix(in_srgb,var(--bg-card)_88%,transparent)] shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-xl"
+      whileHover={{ y: -5 }}
       transition={{ type: "spring", stiffness: 220, damping: 22 }}
     >
-      <div className="relative border-b border-[var(--border)] bg-[linear-gradient(180deg,rgba(17,17,17,0.02)_0%,rgba(17,17,17,0.01)_100%)] p-3">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(17,17,17,0.045),transparent_58%)]" />
-        <div className="relative overflow-hidden rounded-[0.75rem] border border-[var(--border)] bg-[var(--bg)]">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.02)_0%,rgba(17,17,17,0.005)_100%)]" />
+      <div className="relative p-3">
+        <div className="relative overflow-hidden rounded-[0.85rem] border border-[var(--border)] bg-[var(--bg)]">
           <Image
             src={project.image}
             alt={`${project.title} preview`}
             width={1400}
             height={900}
-            className="h-[172px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.01] md:h-[204px]"
+            className="h-[176px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.015] md:h-[212px]"
           />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/18 to-transparent" />
+          <div className="absolute left-3 top-3 rounded-full bg-[color-mix(in_srgb,var(--bg-card)_82%,transparent)] px-3 py-1.5 backdrop-blur-md">
+            <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--fg)]">
+              {project.category}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-center justify-between gap-4">
-          <p className="mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-subtle)]">
-            {project.category}
-          </p>
+      <div className="flex flex-1 flex-col px-5 pb-5 pt-2">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-[clamp(1.28rem,1.8vw,1.7rem)] font-semibold leading-tight tracking-[-0.055em] text-[var(--fg)]">
+            {project.title}
+          </h3>
           <p className="mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-subtle)]">
             {project.year}
           </p>
         </div>
-
-        <h3 className="mt-2 text-[clamp(1.2rem,1.8vw,1.6rem)] font-semibold tracking-[-0.05em] text-[var(--fg)]">
-          {project.title}
-        </h3>
-        <p className="mt-2.5 text-[0.9rem] leading-6 text-[var(--fg-muted)]">
+        <p className="mt-3 text-[0.92rem] leading-6 text-[var(--fg-muted)]">
           {project.description}
         </p>
 
-        <div className="mt-3.5 flex flex-wrap gap-1.5">
+        <div className="mt-4 grid grid-cols-3 border-y border-[var(--border)] py-3">
+          {project.metrics.map((metric) => (
+            <div key={`${project.slug}-${metric.label}`} className="min-w-0 px-2 first:pl-0 last:pr-0">
+              <p className="mono truncate text-[9px] uppercase tracking-[0.15em] text-[var(--fg-subtle)]">
+                {metric.label}
+              </p>
+              <p className="mt-1 truncate text-[0.9rem] font-semibold tracking-[-0.03em] text-[var(--fg)]">
+                {metric.value}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-4">
+          <p className="mono inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
+            <Sparkles size={13} strokeWidth={1.8} /> Project highlights
+          </p>
+          <ul className="mt-3 space-y-2.5">
+            {highlights.map((highlight) => (
+              <li key={highlight} className="flex gap-2.5 text-sm leading-6 text-[var(--fg-muted)]">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--fg-subtle)]" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <TechBadge key={tag}>{tag}</TechBadge>
           ))}
         </div>
 
-        <div className="mt-4.5 flex flex-wrap items-center gap-2 border-t border-[var(--border)] pt-3">
+        <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
           <Link
             href={`/work/${project.slug}`}
-            className="mono inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--border-mid)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg)] transition hover:border-[var(--border-hover)] sm:w-auto"
+            className="mono inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--fg)] px-3.5 py-2 text-[10px] uppercase tracking-[0.16em] text-[var(--bg)] transition hover:opacity-90 sm:w-auto"
           >
             View details <ArrowUpRight size={14} />
           </Link>
@@ -67,7 +96,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="mono inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--border)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)] sm:w-auto"
+              className="mono inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--border-mid)] px-3.5 py-2 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)] sm:w-auto"
             >
               Source code <Github size={14} />
             </a>
