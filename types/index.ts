@@ -4,6 +4,10 @@ export interface Project {
   category: string;
   description: string;
   features: string[];
+  metrics: {
+    label: string;
+    value: string;
+  }[];
   year: number;
   tags: string[];
   image: string;
