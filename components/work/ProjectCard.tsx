@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Github, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowUpRight, Github } from "lucide-react";
+import { MagicCard } from "@/components/ui/magic-card";
 import type { Project } from "@/types";
 import { TechBadge } from "@/components/work/TechBadge";
 
@@ -15,10 +15,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const highlights = project.features.slice(0, 3);
 
   return (
-    <motion.article
-      className="card-hover group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-[var(--border)] bg-[color-mix(in_srgb,var(--bg-card)_88%,transparent)] shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-xl"
-      whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 220, damping: 22 }}
+    <MagicCard
+      className="group"
+      gradientColor="var(--bg-elevated)"
+      gradientSize={350}
+      gradientOpacity={0.6}
     >
       <div className="relative p-3">
         <div className="relative overflow-hidden rounded-[0.85rem] border border-[var(--border)] bg-[var(--bg)]">
@@ -66,7 +67,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="mt-4">
           <p className="mono inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
-            <Sparkles size={13} strokeWidth={1.8} /> Project highlights
+            Project highlights
           </p>
           <ul className="mt-3 space-y-2.5">
             {highlights.map((highlight) => (
@@ -103,6 +104,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ) : null}
         </div>
       </div>
-    </motion.article>
+    </MagicCard>
   );
 }
