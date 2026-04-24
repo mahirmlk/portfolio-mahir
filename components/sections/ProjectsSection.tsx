@@ -25,7 +25,7 @@ export function ProjectsSection() {
         <div className="space-y-8">
           <div>
             <p className="section-eyebrow">Projects</p>
-            <h2 className="section-title">Real projects grouped by the problems they solve.</h2>
+            <h2 className="section-title">Selected works showcasing engineering depth and problem-solving.</h2>
             <p className="section-copy mt-5">
               A focused selection of product and machine learning work spanning agent systems,
               backend orchestration, and causal inference pipelines.
