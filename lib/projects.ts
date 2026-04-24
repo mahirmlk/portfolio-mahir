@@ -2,8 +2,8 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    slug: "agent-router",
-    title: "Agent Router",
+    slug: "meridian",
+    title: "Meridian",
     category: "AI Infrastructure",
     description:
       "A split-stack chat routing application built with a Next.js dashboard and FastAPI backend, using LangGraph workflows to manage model selection, provider settings, local chat history, and OpenRouter-powered responses.",
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     ],
     year: 2026,
     tags: ["Next.js", "FastAPI", "LangGraph", "OpenRouter", "Tailwind CSS", "TypeScript"],
-    image: "/assets/img/projects/screenshots/agent-router.svg",
+    image: "/assets/img/projects/screenshots/meridian.png",
     githubUrl: "https://github.com/mahirmlk/agent-router",
     featured: true
   },
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     ],
     year: 2026,
     tags: ["Python", "EconML", "DoWhy", "scikit-learn", "SHAP", "Pandas"],
-    image: "/assets/img/projects/screenshots/treatment-effect-estimation.svg",
+    image: "/assets/img/projects/screenshots/treatment-effect-estimation.png",
     githubUrl: "https://github.com/mahirmlk/casual-ml-treamtment-effect",
     featured: true
   }
