@@ -125,7 +125,7 @@ export function Navbar() {
             </Link>
           </Button>
 
-          <nav className="nav-links hidden md:flex">
+          <nav className="nav-links hidden lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -177,7 +177,7 @@ export function Navbar() {
               variant="ghost"
               size="icon-sm"
               onClick={() => setOpen((current) => !current)}
-              className="nav-icon-button md:hidden"
+              className="nav-icon-button lg:hidden"
               aria-label="Toggle navigation"
             >
               <Menu className="size-4" strokeWidth={1.9} />
