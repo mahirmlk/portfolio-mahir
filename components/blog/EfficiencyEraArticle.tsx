@@ -30,9 +30,9 @@ const deploymentRows = [
 
 export function EfficiencyEraArticle({ post }: { post: BlogPost }) {
   return (
-    <div className="min-h-screen bg-[#090b0f] text-[#eee8de]">
+    <div className="min-h-screen bg-[#090b0f] pt-24 text-[#eee8de] lg:pt-0">
       <section className="border-b border-white/8">
-        <div className="mx-auto grid w-[min(1160px,calc(100vw-6rem))] gap-14 px-4 pb-18 pt-14 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_360px] lg:items-end lg:px-8">
+        <div className="mx-auto grid w-[min(1160px,calc(100vw-1.5rem))] gap-8 pb-10 pt-8 sm:px-6 lg:w-[min(1160px,calc(100vw-6rem))] lg:grid-cols-[minmax(0,1.1fr)_360px] lg:items-end lg:gap-12 lg:px-8 lg:pb-14 lg:pt-12">
           <div>
             <Link
               href="/blog"
@@ -42,7 +42,7 @@ export function EfficiencyEraArticle({ post }: { post: BlogPost }) {
               Back to all writing
             </Link>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-white/45">
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-white/45 lg:mt-7">
               <span className="text-white/72">{post.category}</span>
               <span className="text-white/22">/</span>
               <span>{post.readTime}</span>
@@ -54,33 +54,35 @@ export function EfficiencyEraArticle({ post }: { post: BlogPost }) {
               </span>
             </div>
 
-            <h1 className="mt-8 max-w-[11ch] font-[var(--font-serif)] text-[clamp(3.4rem,9vw,7rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-[#f4efe7]">
+            <h1 className="mt-5 max-w-[13ch] font-[var(--font-serif)] text-[clamp(2.45rem,13vw,3.75rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-[#f4efe7] lg:mt-6 lg:max-w-[12ch] lg:text-[clamp(2.9rem,6.8vw,5.4rem)] lg:leading-[0.98] lg:tracking-[-0.045em]">
               {post.title}
             </h1>
 
-            <p className="mt-8 max-w-[42rem] text-[1.15rem] leading-9 text-white/68">{post.description}</p>
+            <p className="mt-5 max-w-[42rem] text-[1rem] leading-7 text-white/68 lg:mt-6 lg:text-[1.05rem] lg:leading-8">{post.description}</p>
 
-          <div className="mt-10 grid max-w-[40rem] grid-cols-3 gap-3">
+          <div className="mt-7 grid max-w-[40rem] gap-4 sm:grid-cols-3 lg:mt-8 lg:gap-3">
             {[
               { value: "smaller", label: "can be strategically better" },
               { value: "faster", label: "changes UX and routing design" },
               { value: "cheaper", label: "makes AI deployable at scale" },
             ].map((item) => (
               <div key={item.label} className="border-l border-white/10 pl-4">
-                <p className="font-[var(--font-serif)] text-[1.65rem] leading-none text-[#f2ece2]">{item.value}</p>
+                <p className="font-[var(--font-serif)] text-[1.45rem] leading-none text-[#f2ece2] lg:text-[1.65rem]">{item.value}</p>
                 <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
               </div>
             ))}
           </div>
         </div>
 
-          <EfficiencyHeroVisual />
+          <div className="hidden lg:block">
+            <EfficiencyHeroVisual />
+          </div>
         </div>
       </section>
 
       <div
         id="blog-article-root"
-        className="mx-auto grid w-[min(1160px,calc(100vw-6rem))] gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:px-8"
+        className="mx-auto grid w-[min(1160px,calc(100vw-1.5rem))] gap-10 py-10 sm:px-6 lg:w-[min(1160px,calc(100vw-6rem))] lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12 lg:px-8 lg:py-16"
       >
         <article className="min-w-0">
           <div className="border-t border-white/8 pt-8">
