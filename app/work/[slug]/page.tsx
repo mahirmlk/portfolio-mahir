@@ -166,8 +166,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        <div className="relative min-h-72 overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_25px_60px_rgba(0,0,0,0.18)]">
-          <Image src={project.image} alt={`${project.title} screenshot`} fill className="object-cover" />
+        <div className="overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_25px_60px_rgba(0,0,0,0.18)]">
+          <Image
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            width={1400}
+            height={788}
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="h-auto w-full object-contain"
+          />
         </div>
       </div>
 
