@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, Globe } from "lucide-react";
 import { MagicCard } from "@/components/ui/magic-card";
 import type { Project } from "@/types";
 import { TechBadge } from "@/components/work/TechBadge";
@@ -92,6 +92,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             View details <ArrowUpRight size={14} />
           </Link>
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mono inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--border-mid)] px-3.5 py-2 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)] sm:w-auto"
+            >
+              Live preview <Globe size={14} />
+            </a>
+          ) : null}
           {project.githubUrl ? (
             <a
               href={project.githubUrl}

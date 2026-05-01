@@ -1,0 +1,42 @@
+---
+title: "Meridian"
+excerpt: "An intelligent AI chat router with automatic model selection, streaming responses, and multi-provider fallbacks."
+---
+
+## Overview
+
+Meridian is an AI chat routing system that analyzes prompt difficulty and automatically selects an appropriate free model from OpenRouter. It combines a Next.js dashboard with a FastAPI backend and supports both guest usage and signed-in workflows.
+
+## What It Covers
+
+- Automatic model routing across SIMPLE, INTERMEDIATE, and HARD prompt tiers
+- Live free-model aggregation from OpenRouter with cached capability metadata
+- Real-time streaming responses using Server-Sent Events
+- Multi-provider support including OpenRouter, OpenAI, Anthropic, Groq, Together, Fireworks, Mistral, xAI, Qwen, and compatible endpoints
+- Guest access with request caps, plus custom provider keys and authenticated usage
+- Supabase-backed auth, session management, and persistent message history
+
+## Why It Matters
+
+Meridian turns model selection and provider failover into backend infrastructure instead of manual user decisions. This reduces friction in everyday chat workflows while preserving control for advanced users who want to supply their own keys and providers.
+
+## Architecture
+
+- Next.js dashboard handles chat UX, session navigation, and provider configuration
+- FastAPI backend handles difficulty detection, key routing, model selection, and response streaming
+- OpenRouter powers free-model discovery and inference calls
+- Supabase stores auth state, chat sessions, messages, guest usage, and user API keys
+- Fallback logic retries alternative models within the same difficulty tier when upstream calls fail
+
+## Stack
+
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- TypeScript
+- FastAPI
+- Uvicorn
+- HTTPX
+- Pydantic
+- Supabase
+- OpenRouter

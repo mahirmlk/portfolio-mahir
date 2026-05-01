@@ -6,23 +6,24 @@ export const projects: Project[] = [
     title: "Meridian",
     category: "AI Infrastructure",
     description:
-      "A split-stack chat routing application built with a Next.js dashboard and FastAPI backend, using LangGraph workflows to manage model selection, provider settings, local chat history, and OpenRouter-powered responses.",
+      "An intelligent AI chat router that auto-selects the best free model for each prompt, streams responses over SSE, and supports user-configured providers with Supabase-backed sessions and history.",
     features: [
-      "Next.js dashboard for chat, models, history, and provider controls",
-      "FastAPI endpoints for health checks and routed chat requests",
-      "LangGraph workflow layer for request orchestration and response shaping",
-      "OpenRouter-backed model routing with shared-key or user-supplied provider setup",
-      "Local-first settings and conversation history stored in the browser"
+      "Automatic prompt difficulty routing across free OpenRouter models",
+      "Real-time streaming chat responses via Server-Sent Events",
+      "Multi-provider support with custom keys and compatible API endpoints",
+      "Guest mode with request limits and seamless fallback to user auth",
+      "Supabase-backed authentication, sessions, and persistent chat history"
     ],
     metrics: [
-      { label: "Stack", value: "Full-stack" },
-      { label: "Flow", value: "LangGraph" },
-      { label: "Storage", value: "Local-first" }
+      { label: "Providers", value: "10+" },
+      { label: "Guest Limit", value: "20 reqs" },
+      { label: "Streaming", value: "SSE" }
     ],
     year: 2026,
-    tags: ["Next.js", "FastAPI", "LangGraph", "OpenRouter", "Tailwind CSS", "TypeScript"],
+    tags: ["Next.js 16", "React 19", "FastAPI", "OpenRouter", "Supabase", "TypeScript"],
     image: "/assets/img/projects/screenshots/meridian.png",
-    githubUrl: "https://github.com/mahirmlk/agent-router",
+    liveUrl: "https://meridian-router-chat.vercel.app/",
+    githubUrl: "https://github.com/mahirmlk/meridian",
     featured: true
   },
   {
