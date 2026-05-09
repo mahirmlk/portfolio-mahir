@@ -17,13 +17,13 @@ export const blogPosts: BlogPost[] = [
     slug: "efficiency-era-of-ai",
     title: "Why Efficient Models Are Winning",
     description:
-      "Why raw parameter count is no longer the main story, and how small, disciplined models are reshaping deployment economics.",
+      "Why raw parameter count is no longer the main story, and how efficient models, routing, compression, and compound systems are reshaping AI deployment.",
     excerpt:
-      "The interesting shift in AI is not just bigger frontier models. It is the growing ability of smaller models to match useful performance with dramatically lower latency, cost, and infrastructure burden.",
+      "The interesting shift in AI is not just bigger frontier models. It is the growing ability of smaller models and better systems to deliver useful performance with lower latency, cost, memory pressure, and infrastructure burden.",
     date: "2026-04-09",
-    readTime: "14 min read",
+    readTime: "18 min read",
     category: "AI Systems",
-    tags: ["LLMs", "Model Serving", "Efficiency", "Deployment"],
+    tags: ["LLMs", "Model Serving", "Efficiency", "Routing"],
     featured: true,
     layout: "feature",
   },
