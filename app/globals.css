@@ -247,13 +247,14 @@ body {
   margin-bottom: 1rem;
   font-size: 1.4rem;
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .prose-article p {
   margin-bottom: 1rem;
   color: var(--fg-muted);
-  line-height: 1.9;
+  font-size: 1.04rem;
+  line-height: 1.85;
 }
 
 .prose-article ul {
