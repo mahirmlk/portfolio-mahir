@@ -9,6 +9,12 @@ export type BlogPost = {
   tags: string[];
   featured?: boolean;
   layout: "feature" | "standard";
+  previewImage?: {
+    url: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
   body?: string[];
 };
 
@@ -26,6 +32,12 @@ export const blogPosts: BlogPost[] = [
     tags: ["LLMs", "Model Serving", "Efficiency", "Routing"],
     featured: true,
     layout: "feature",
+    previewImage: {
+      url: "/assets/img/blog/efficiency-era-preview.png",
+      width: 1672,
+      height: 941,
+      alt: "Preview graphic for Why Efficient Models Are Winning",
+    },
   },
 ];
 
