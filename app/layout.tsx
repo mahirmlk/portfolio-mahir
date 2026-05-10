@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mahirmalik.dev"),
+  metadataBase: new URL("https://www.mahirmalik.in"),
   title: {
     template: "%s | Mahir Malik",
     default: "Mahir Malik"
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://mahirmalik.dev",
+    url: "https://www.mahirmalik.in",
     siteName: "Mahir Malik",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }]
   },

@@ -22,9 +22,40 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     return { title: "Post not found" };
   }
 
+  const url = `/blog/${post.slug}`;
+  const images = post.previewImage
+    ? [
+        {
+          url: post.previewImage.url,
+          width: post.previewImage.width,
+          height: post.previewImage.height,
+          alt: post.previewImage.alt,
+        },
+      ]
+    : undefined;
+
   return {
     title: post.title,
     description: post.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      title: post.title,
+      description: post.description,
+      publishedTime: post.date,
+      section: post.category,
+      tags: post.tags,
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: post.previewImage ? [post.previewImage.url] : undefined,
+    },
   };
 }
 
