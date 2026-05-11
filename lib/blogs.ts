@@ -13,6 +13,7 @@ export type BlogPost = {
     url: string;
     width: number;
     height: number;
+    type: string;
     alt: string;
   };
   body?: string[];
@@ -33,9 +34,10 @@ export const blogPosts: BlogPost[] = [
     featured: true,
     layout: "feature",
     previewImage: {
-      url: "/assets/img/blog/efficiency-era-preview.png",
-      width: 1672,
-      height: 941,
+      url: "/efficiency-era-preview-v2.png",
+      width: 1200,
+      height: 600,
+      type: "image/png",
       alt: "Preview graphic for Why Efficient Models Are Winning",
     },
   },
