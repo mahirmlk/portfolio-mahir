@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
           url: post.previewImage.url,
           width: post.previewImage.width,
           height: post.previewImage.height,
+          type: post.previewImage.type,
           alt: post.previewImage.alt,
         },
       ]
@@ -54,8 +55,20 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.previewImage ? [post.previewImage.url] : undefined,
+      images: post.previewImage
+        ? [
+            {
+              url: post.previewImage.url,
+              alt: post.previewImage.alt,
+            },
+          ]
+        : undefined,
     },
+    other: post.previewImage
+      ? {
+          "twitter:image:alt": post.previewImage.alt,
+        }
+      : undefined,
   };
 }
 
