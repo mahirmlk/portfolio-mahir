@@ -52,7 +52,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               Explore <ArrowUpRight className="size-3.5" />
             </Link>
             <a
-              href="https://github.com/mahirmalik"
+              href="https://github.com/mahirmlk"
               target="_blank"
               rel="noreferrer"
               className="mono inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--border-mid)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"

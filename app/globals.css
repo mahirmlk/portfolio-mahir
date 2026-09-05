@@ -177,11 +177,11 @@ body {
 
 .section-title {
   margin-top: 0.9rem;
-  font-family: var(--font-heading), sans-serif;
-  font-size: clamp(2rem, 3.2vw, 3.2rem);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  font-family: var(--font-section), sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .section-copy {
@@ -224,6 +224,49 @@ body {
 
 .glass-button:hover {
   border-color: var(--border-hover);
+}
+
+.apple-glass {
+  border: 1px solid color-mix(in srgb, #ffffff 20%, transparent);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+    color-mix(in srgb, var(--bg-card) 70%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 28px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.apple-glass:hover {
+  border-color: color-mix(in srgb, #ffffff 34%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 14px 34px rgba(0, 0, 0, 0.16);
+}
+
+.glass-transparent {
+  border: 1px solid var(--border-mid);
+  background: color-mix(in srgb, #ffffff 6%, transparent);
+  box-shadow: none;
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.glass-transparent:hover {
+  border-color: var(--border-hover);
+  background: color-mix(in srgb, #ffffff 10%, transparent);
 }
 
 .card-hover {
@@ -271,6 +314,43 @@ body {
   font-family: var(--font-mono), monospace;
 }
 
+.mono-body {
+  font-family: "Berkeley Mono", var(--font-mono), monospace;
+}
+
+.font-section {
+  font-family: var(--font-section), sans-serif;
+}
+
+.font-feature {
+  font-family: var(--font-sans), sans-serif;
+}
+
+.about-keyword {
+  --sketch-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8C22 4 38 10 58 7S92 5 118 8' fill='none' stroke='%23111111' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M4 9C26 6 44 10 64 8S94 7 116 9' fill='none' stroke='%23111111' stroke-width='1.4' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E");
+  font-family: "Berkeley Mono", var(--font-mono), monospace;
+  font-size: 0.9em;
+  border-radius: 0.2rem;
+  padding-inline: 0.12rem;
+  margin-inline: -0.12rem;
+  padding-bottom: 0.14em;
+  background-image:
+    linear-gradient(color-mix(in srgb, currentColor 16%, transparent), color-mix(in srgb, currentColor 16%, transparent)),
+    var(--sketch-underline);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0 0, 0 100%;
+  background-size: 0% 100%, 100% 0.32em;
+  transition: background-size 260ms ease;
+}
+
+.dark .about-keyword {
+  --sketch-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8C22 4 38 10 58 7S92 5 118 8' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M4 9C26 6 44 10 64 8S94 7 116 9' fill='none' stroke='%23ffffff' stroke-width='1.4' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.about-keyword:hover {
+  background-size: 100% 100%, 100% 0.32em;
+}
+
 .noise-overlay {
   position: fixed;
   inset: 0;
@@ -310,6 +390,67 @@ body {
 
 .animate-float-orb {
   animation: float-orb 8s ease-in-out infinite;
+}
+
+@keyframes block-shimmer {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-block-shimmer {
+  animation: block-shimmer 5s ease-in-out infinite;
+}
+
+@keyframes p-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.p-float {
+  animation: p-float 6s ease-in-out infinite;
+}
+
+.p-float-slow {
+  animation: p-float 7.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes p-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5px, -2px);
+  }
+}
+
+.p-drift {
+  animation: p-drift 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p-float,
+  .p-float-slow,
+  .p-drift {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-block-shimmer {
+    animation: none;
+  }
 }
 
 /* ─── GitHub Contribution Graph ─── */
@@ -642,8 +783,8 @@ body {
 
   .section-title {
     margin-top: 0.7rem;
-    font-size: clamp(1.85rem, 8.6vw, 2.55rem);
-    line-height: 1.02;
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    line-height: 1.12;
   }
 
   .section-copy {
@@ -712,7 +853,7 @@ body {
 }
 
 .dark {
-  --bg: #050607;
+  --bg: #000000;
   --bg-elevated: #0d1013;
   --bg-card: rgba(16, 18, 21, 0.92);
   --bg-raised: #11151a;
@@ -736,15 +877,15 @@ body {
   --border-mid: rgba(255, 255, 255, 0.15);
   --border-strong: rgba(255, 255, 255, 0.24);
   --border-hover: rgba(255, 255, 255, 0.34);
-  --fg: #f6f7f8;
-  --fg-muted: rgba(246, 247, 248, 0.84);
-  --fg-subtle: rgba(246, 247, 248, 0.6);
-  --accent-green: #f6f7f8;
+  --fg: #ffffff;
+  --fg-muted: rgba(255, 255, 255, 0.84);
+  --fg-subtle: rgba(255, 255, 255, 0.6);
+  --accent-green: #ffffff;
   --nav-bg: #0a0c0e;
   --btn-bg: #12161b;
-  --btn-fg: #f6f7f8;
+  --btn-fg: #ffffff;
   --nav-line: rgba(255, 255, 255, 0.12);
-  --nav-shell: rgba(6, 8, 10, 0.88);
+  --nav-shell: rgba(0, 0, 0, 0.88);
   --nav-panel: rgba(15, 18, 22, 0.84);
   --nav-pill: rgba(255, 255, 255, 0.05);
   --nav-kbd: rgba(255, 255, 255, 0.08);
@@ -752,7 +893,7 @@ body {
   --cta-fg: #0b0f0d;
   --cta-hover: #eef2e7;
   --cta-shadow: rgba(216, 222, 205, 0.18);
-  --principle-shadow: rgba(246, 247, 248, 0.08);
+  --principle-shadow: rgba(255, 255, 255, 0.08);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);

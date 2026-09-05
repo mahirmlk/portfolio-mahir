@@ -1,4 +1,4 @@
-import { Inter, JetBrains_Mono, Sora, Playfair_Display, Montserrat } from "next/font/google";
+import { Inter, JetBrains_Mono, Sora, Playfair_Display, Montserrat, Space_Grotesk } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +25,13 @@ export const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["800", "900"],
   variable: "--font-display",
+  display: "swap",
+});
+
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-section",
   display: "swap",
 });
 

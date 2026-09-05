@@ -159,7 +159,7 @@ export function Navbar() {
               className="nav-icon-button hidden sm:inline-flex"
             >
               <a
-                href="https://github.com/mahirmalik"
+                href="https://github.com/mahirmlk"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open GitHub profile"

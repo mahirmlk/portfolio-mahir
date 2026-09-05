@@ -5,6 +5,9 @@ import { BlogListItem } from "@/components/blog/BlogListItem";
 export const metadata: Metadata = {
   title: "Blogs",
   description: "Writing on AI systems, retrieval reliability, deployment tradeoffs, and product-minded engineering.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogIndexPage() {
@@ -28,7 +31,7 @@ export default function BlogIndexPage() {
             </div>
 
             <div>
-              <h1 className="mt-1 max-w-[12ch] font-[var(--font-display)] text-[clamp(2.45rem,12vw,3.7rem)] font-black uppercase leading-[1] tracking-[-0.045em] text-[#f4efe7] lg:mt-2 lg:max-w-[11ch] lg:text-[clamp(3rem,6.8vw,5.4rem)] lg:leading-[0.96] lg:tracking-[-0.06em]">
+              <h1 className="mt-1 max-w-[12ch] font-feature text-[clamp(2.45rem,12vw,3.7rem)] font-normal uppercase leading-[1] tracking-[-0.045em] text-[#f4efe7] lg:mt-2 lg:max-w-[11ch] lg:text-[clamp(3rem,6.8vw,5.4rem)] lg:leading-[0.96] lg:tracking-[-0.06em]">
                 Systems essays with weight.
               </h1>
               <p className="mt-5 max-w-[44rem] text-[0.98rem] leading-7 text-white/66 lg:mt-6 lg:text-[1.02rem] lg:leading-8">

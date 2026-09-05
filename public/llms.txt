@@ -1,0 +1,20 @@
+# Mahir Malik — AI Engineer
+
+> Mahir Malik is an AI engineer who builds intelligent systems, ML products, and production-grade software — LLM agents, RAG pipelines, and full-stack AI applications across the whole pipeline from training to production.
+
+## About
+- [About Mahir Malik](https://www.mahirmalik.in/about): Bio, working principles, skills, and contact information. Canonical profile and identity page.
+- [Work](https://www.mahirmalik.in/work): Project archive covering agentic commerce, ML visualization, and AI infrastructure.
+
+## Projects
+- [Sellable](https://www.mahirmalik.in/work/sellable): AI agents that buy things autonomously with guardrails — machine-readable storefront, policy engine, Razorpay payment rails, and an XAI audit ledger.
+- [Confluence](https://www.mahirmalik.in/work/confluence): Interactive ML learning playground with 38 scikit-learn algorithms, live decision boundaries, frame-by-frame training playback, and 25 datasets.
+
+## Blog
+- [Blog home](https://www.mahirmalik.in/blog): Long-form writing on LLM deployment, retrieval systems, evaluation discipline, and product decisions around AI.
+- [Why Efficient Models Are Winning](https://www.mahirmalik.in/blog/efficiency-era-of-ai): Why raw parameter count is no longer the main story, and how efficient models, routing, compression, and compound systems are reshaping AI deployment.
+
+## Elsewhere
+- [GitHub](https://github.com/mahirmlk): Open-source projects and code.
+- [LinkedIn](https://www.linkedin.com/in/mahir-malik): Professional profile.
+- [X](https://x.com/mahirmllk): Social profile.

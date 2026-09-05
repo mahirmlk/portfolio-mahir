@@ -10,7 +10,7 @@ export interface Project {
   }[];
   year: number;
   tags: string[];
-  image: string;
+  preview: "light" | "dark";
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;

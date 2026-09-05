@@ -40,7 +40,7 @@ export function HeroActions() {
         <motion.button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex w-full items-center justify-between gap-3 rounded-none bg-[var(--cta-bg)] px-6 py-4 text-[0.9rem] font-semibold text-[var(--cta-fg)] shadow-[0_18px_32px_var(--cta-shadow)] transition hover:bg-[var(--cta-hover)] sm:w-auto sm:justify-center sm:px-8"
+          className="inline-flex w-full items-center justify-between gap-3 rounded-none bg-[var(--fg)] px-6 py-4 text-[0.9rem] font-semibold text-[var(--bg)] transition hover:opacity-85 sm:w-auto sm:justify-center sm:px-8"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.985 }}
         >
@@ -50,7 +50,7 @@ export function HeroActions() {
 
         <Link
           href="/#projects"
-          className="inline-flex w-full items-center justify-between gap-3 border border-[var(--border)] bg-[var(--bg-card)] px-6 py-4 text-[0.9rem] font-semibold text-[var(--fg)] transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-elevated)] sm:w-auto sm:justify-center sm:px-8"
+          className="glass-transparent inline-flex w-full items-center justify-between gap-3 rounded-none px-6 py-4 text-[0.9rem] font-semibold text-[var(--fg)] transition sm:w-auto sm:justify-center sm:px-8"
         >
           <span>Explore work</span>
           <ArrowRight size={18} strokeWidth={1.8} />

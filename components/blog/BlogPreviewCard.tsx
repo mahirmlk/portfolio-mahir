@@ -20,16 +20,16 @@ export function BlogPreviewCard({ post }: { post: BlogPost }) {
     >
       <div className="flex h-full flex-col">
         <div className="flex items-start justify-between gap-4">
-          <span className="mono text-[11px] uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
+          <time dateTime={post.date} className="mono text-[11px] uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
             {formatDate(post.date)}
-          </span>
+          </time>
           <span className="mono text-[11px] uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
             {post.readTime}
           </span>
         </div>
 
         <div className="mt-8">
-          <h3 className="font-[var(--font-display)] text-[2.55rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-[var(--fg)]">
+          <h3 className="font-feature text-[2.55rem] font-normal uppercase leading-[0.94] tracking-[-0.06em] text-[var(--fg)]">
             {post.title}
           </h3>
           <p className="mt-5 text-base leading-8 text-[var(--fg-muted)]">{post.description}</p>

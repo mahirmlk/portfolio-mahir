@@ -1,11 +1,13 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Github, Globe } from "lucide-react";
+import { ProjectPreview } from "@/components/work/ProjectPreview";
 import { TechBadge } from "@/components/work/TechBadge";
 import { getProjectBySlug, projects } from "@/lib/projects";
+import { JsonLd, techArticleSchema } from "@/lib/schema";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -106,9 +108,28 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return { title: "Project not found" };
   }
 
+  const url = `/work/${project.slug}`;
+
   return {
     title: project.title,
-    description: project.description
+    description: project.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      title: project.title,
+      description: project.description,
+      publishedTime: `${project.year}-01-01`,
+      section: project.category,
+      tags: project.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+    },
   };
 }
 
@@ -124,7 +145,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const blocks = parseBlocks(content);
 
   return (
-    <article className="site-container section-block">
+    <>
+      <JsonLd data={techArticleSchema(project)} />
+      <article className="site-container section-block">
       <Link
         href="/work"
         className="glass-chip mono inline-flex rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
@@ -136,20 +159,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div>
           <p className="section-eyebrow">Case Study / {project.year}</p>
           <h1 className="section-title">{project.title}</h1>
-          <p className="section-copy mt-5">{project.description}</p>
+          <p className="mono-body mt-5 max-w-[44rem] text-[0.92rem] leading-8 text-[var(--fg-muted)]">{project.description}</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <TechBadge key={tag}>{tag}</TechBadge>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-6">
             {project.liveUrl ? (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mono rounded-md border border-[var(--border-mid)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
+                className="inline-flex items-center gap-1.5 text-[0.9rem] font-medium text-[var(--fg)] transition hover:opacity-70"
               >
+                <Globe size={13} strokeWidth={1.5} />
                 Live project
               </a>
             ) : null}
@@ -158,23 +182,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mono rounded-md border border-[var(--border-mid)] px-4 py-3 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-muted)] transition hover:border-[var(--border-hover)] hover:text-[var(--fg)]"
+                className="inline-flex items-center gap-1.5 text-[0.9rem] font-medium text-[var(--fg)] transition hover:opacity-70"
               >
+                <Github size={13} strokeWidth={1.5} />
                 Source code
               </a>
             ) : null}
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_25px_60px_rgba(0,0,0,0.18)]">
-          <Image
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            width={1400}
-            height={788}
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="h-auto w-full object-contain"
-          />
+        <div className="overflow-hidden rounded-[1.75rem] border border-[var(--border)] shadow-[0_25px_60px_rgba(0,0,0,0.18)]">
+          <ProjectPreview project={project} className="aspect-[16/10] w-full" />
         </div>
       </div>
 
@@ -182,7 +200,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="flex items-end justify-between gap-4 border-b border-[var(--border)] pb-4">
           <div>
             <p className="section-eyebrow">Project Features</p>
-            <h2 className="mt-3 text-[1.5rem] font-semibold tracking-[-0.04em] text-[var(--fg)]">
+            <h2 className="font-section mt-3 text-[1.5rem] font-semibold tracking-[-0.02em] text-[var(--fg)]">
               What this case study includes
             </h2>
           </div>
@@ -195,7 +213,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.features.map((feature) => (
             <div
               key={feature}
-              className="rounded-[1rem] border border-[var(--border)] bg-[var(--bg-card)] px-4 py-3 text-sm leading-7 text-[var(--fg-muted)]"
+              className="mono-body rounded-[1rem] border border-[var(--border)] bg-[var(--bg-card)] px-4 py-3 text-[0.8rem] leading-7 text-[var(--fg-muted)]"
             >
               {feature}
             </div>
@@ -203,7 +221,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </div>
 
-      <div className="prose-article mt-14 max-w-3xl">
+      <div className="prose-article mono-body mt-14 max-w-3xl">
         {blocks.length ? (
           blocks.map((block, index) => {
             if (block.type === "heading") {
@@ -228,5 +246,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
       </div>
     </article>
+    </>
   );
 }

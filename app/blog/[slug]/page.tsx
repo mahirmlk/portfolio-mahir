@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "@/lib/blogs";
 import { EfficiencyEraArticle } from "@/components/blog/EfficiencyEraArticle";
 import { StandardBlogArticle } from "@/components/blog/StandardBlogArticle";
+import { JsonLd, blogPostingSchema } from "@/lib/schema";
 
 interface BlogPageProps {
   params: Promise<{
@@ -81,8 +82,18 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   }
 
   if (post.layout === "feature") {
-    return <EfficiencyEraArticle post={post} />;
+    return (
+      <>
+        <JsonLd data={blogPostingSchema(post)} />
+        <EfficiencyEraArticle post={post} />
+      </>
+    );
   }
 
-  return <StandardBlogArticle post={post} />;
+  return (
+    <>
+      <JsonLd data={blogPostingSchema(post)} />
+      <StandardBlogArticle post={post} />
+    </>
+  );
 }

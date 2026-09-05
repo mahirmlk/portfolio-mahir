@@ -58,7 +58,7 @@ export function BlogsSection() {
 
             <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="min-w-0">
-                <h3 className="font-[var(--font-display)] text-[1.55rem] font-black uppercase leading-[0.94] tracking-[-0.06em] text-[var(--fg)] sm:text-[1.9rem]">
+                <h3 className="font-feature text-[1.55rem] font-normal uppercase leading-[0.94] tracking-[-0.06em] text-[var(--fg)] sm:text-[1.9rem]">
                   {featured.title}
                 </h3>
                 <p className="mt-3 max-w-[34rem] text-sm leading-7 text-[var(--fg-muted)]">

@@ -2,53 +2,76 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    slug: "meridian",
-    title: "Meridian",
-    category: "AI Infrastructure",
+    slug: "sellable",
+    title: "Sellable",
+    category: "Agentic Commerce",
     description:
-      "An intelligent AI chat router that auto-selects the best free model for each prompt, streams responses over SSE, and supports user-configured providers with Supabase-backed sessions and history.",
+      "AI agents that buy things on their own — with guardrails. Sellable gives them a machine-readable storefront: discover products, haggle quotes, pass policy checks, and pay over real Razorpay rails, while every decision lands in an audit ledger. The model suggests; deterministic code decides.",
     features: [
-      "Automatic prompt difficulty routing across free OpenRouter models",
-      "Real-time streaming chat responses via Server-Sent Events",
-      "Multi-provider support with custom keys and compatible API endpoints",
-      "Guest mode with request limits and seamless fallback to user auth",
-      "Supabase-backed authentication, sessions, and persistent chat history"
+      "Agent gateway with machine-readable discovery and HMAC-signed transactional API",
+      "LangGraph seller and buyer agents bounded by an LLM-independent policy engine",
+      "Per-transaction single-use consent, spend caps, floor prices, and human-in-the-loop thresholds",
+      "Razorpay test-mode payments with webhook reconciliation, refunds, and idempotent orders",
+      "XAI Ledger audit trail with reasoning summaries plus 7 deterministic evaluation scenarios"
     ],
     metrics: [
-      { label: "Providers", value: "10+" },
-      { label: "Guest Limit", value: "20 reqs" },
-      { label: "Streaming", value: "SSE" }
+      { label: "Agents", value: "Buyer + Seller" },
+      { label: "Rails", value: "Razorpay" },
+      { label: "Evals", value: "7 scenarios" }
     ],
     year: 2026,
-    tags: ["Next.js 16", "React 19", "FastAPI", "OpenRouter", "Supabase", "TypeScript"],
-    image: "/assets/img/projects/screenshots/meridian.png",
-    liveUrl: "https://meridian-router-chat.vercel.app/",
-    githubUrl: "https://github.com/mahirmlk/meridian",
+    tags: ["Python", "FastAPI", "LangGraph", "Next.js 16", "Supabase", "Razorpay"],
+    preview: "light",
+    liveUrl: "https://sellable.shop/",
+    githubUrl: "https://github.com/mahirmlk/sellable",
     featured: true
   },
   {
-    slug: "treatment-effect-estimation",
-    title: "Treatment Effect Estimation",
-    category: "Machine Learning",
+    slug: "confluence",
+    title: "Confluence",
+    category: "ML Visualization",
     description:
-      "A causal inference pipeline for IHDP treatment-effect estimation, covering naive baselines, S/T/X-learners, manual DML, EconML estimators, policy analysis, and reproducible evaluation artifacts for ATE and CATE.",
+      "A playground for learning ML by watching it work: 38 algorithms running real scikit-learn under the hood, decision boundaries you can poke at, training you can scrub through frame by frame, and 25 datasets from Iris to Titanic.",
     features: [
-      "Reusable preprocessing pipeline for IHDP with aligned scaling and train/test splits",
-      "ATE and CATE estimation with S-Learner, T-Learner, X-Learner, and propensity baselines",
-      "Manual DML plus EconML LinearDML and CausalForestDML implementations",
-      "Evaluation outputs for PEHE, ATE error, predictions, and summary metrics",
-      "Interpretability and policy artifacts including SHAP-based analysis and policy curves"
+      "38 algorithms across classification, regression, clustering, and dimensionality reduction",
+      "Real scikit-learn compute with Canvas2D decision-boundary heatmaps and 3D uncertainty surfaces",
+      "Animated training playground with loss curves, playback controls, and step-through tree builder",
+      "25 datasets spanning Kaggle real-world data and synthetic generators, plus PCA explorer",
+      "Algorithm race, benchmark suite, prediction explanations, and auto-generated Python code"
     ],
     metrics: [
-      { label: "Methods", value: "6+" },
-      { label: "Dataset", value: "IHDP" },
-      { label: "Outputs", value: "ATE/CATE" }
+      { label: "Algorithms", value: "38" },
+      { label: "Datasets", value: "25" },
+      { label: "Compute", value: "scikit-learn" }
     ],
     year: 2026,
-    tags: ["Python", "EconML", "DoWhy", "scikit-learn", "SHAP", "Pandas"],
-    image: "/assets/img/projects/screenshots/treatment-effect-estimation.png",
-    githubUrl: "https://github.com/mahirmlk/casual-ml-treamtment-effect",
+    tags: ["Next.js 15", "FastAPI", "scikit-learn", "TypeScript", "Redis", "Docker"],
+    preview: "light",
+    liveUrl: "https://confluence.website/",
+    githubUrl: "https://github.com/mahirmlk/Confluence",
     featured: true
+  },
+  {
+    slug: "helion",
+    title: "Helion",
+    category: "Agent Harness",
+    description:
+      "An AI agent harness shipped as both a TUI and a desktop app — watch agent runs unfold, steer them mid-flight, and gatekeep every tool call from one calm surface. coming soon.",
+    features: [
+      "Terminal and desktop frontends over one shared agent runtime",
+      "Live run timeline with steering, interrupts, and replay",
+      "Policy gates for tool calls with human-in-the-loop approval",
+      "Session capture for replaying and diffing agent behavior"
+    ],
+    metrics: [
+      { label: "Surfaces", value: "TUI + App" },
+      { label: "Control", value: "Inline" },
+      { label: "Status", value: "Soon" }
+    ],
+    year: 2026,
+    tags: ["TypeScript", "Tauri", "Ink", "React"],
+    preview: "light",
+    featured: false
   }
 ];
 

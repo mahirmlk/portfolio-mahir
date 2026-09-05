@@ -87,11 +87,11 @@ export function EfficiencyEraArticle({ post }: { post: BlogPost }) {
               <span className="text-white/22">/</span>
               <span>{post.readTime}</span>
               <span className="text-white/22">/</span>
-              <span>
+              <time dateTime={post.date}>
                 {new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(
                   new Date(post.date)
                 )}
-              </span>
+              </time>
             </div>
 
             <h1 className="mt-5 max-w-[13ch] font-[var(--font-serif)] text-[clamp(2.45rem,13vw,3.75rem)] font-semibold leading-[1.03] tracking-[-0.025em] text-[#f4efe7] lg:mt-6 lg:max-w-[12ch] lg:text-[clamp(2.9rem,6.8vw,5.4rem)] lg:leading-[0.98]">

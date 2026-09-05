@@ -1,12 +1,15 @@
 import type { ReactNode } from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Navbar } from "@/components/nav/Navbar";
 import { Noise } from "@/components/ui/Noise";
-import { inter, jetbrainsMono, sora, playfairDisplay, montserrat } from "@/lib/fonts";
+import { inter, jetbrainsMono, sora, playfairDisplay, montserrat, spaceGrotesk } from "@/lib/fonts";
 import "@/app/globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { JsonLd, homeGraph } from "@/lib/schema";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -20,6 +23,13 @@ const previewImage = {
   height: 1024,
   alt: "Mahir Malik portfolio banner for machine learning and AI systems development",
   type: "image/png"
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#090b0f" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -76,12 +86,15 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(inter.variable, jetbrainsMono.variable, sora.variable, playfairDisplay.variable, montserrat.variable, "font-sans", geist.variable)}
+      className={cn(inter.variable, jetbrainsMono.variable, sora.variable, playfairDisplay.variable, montserrat.variable, spaceGrotesk.variable, "font-sans", geist.variable)}
     >
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
           {themeScript}
         </Script>
+        <link rel="alternate" type="application/rss+xml" title="Mahir Malik — Blog RSS" href="/feed.xml" />
+        <link rel="llms" href="/llms.txt" />
+        <JsonLd data={homeGraph()} />
       </head>
       <body suppressHydrationWarning className="page-shell min-h-screen overflow-x-hidden antialiased">
         <div aria-hidden className="ambient-layer">
@@ -93,6 +106,8 @@ export default function RootLayout({
         <Noise />
         <Navbar />
         <main className="relative z-10 pt-24 md:pt-28">{children}</main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

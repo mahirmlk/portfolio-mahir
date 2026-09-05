@@ -5,7 +5,10 @@ import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Projects archive for Mahir Malik, including AI infrastructure and causal ML work."
+  description: "Projects archive for Mahir Malik, including AI infrastructure and causal ML work.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {
